@@ -1,0 +1,93 @@
+load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/gsn_code.ncl"
+load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/gsn_csm.ncl"
+load "$NCARG_ROOT/lib/ncarg/nclscripts/wrf/WRF_contributed.ncl"
+load "$NCARG_ROOT/lib/ncarg/nclscripts/wrf/WRFUserARW.ncl"
+load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/shea_util.ncl"
+load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/ccm_func.ncl"
+load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/contributed.ncl"
+load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/diagnostics_cam.ncl"
+load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/popRemap.ncl"
+
+begin
+
+;open netcdf data file to get data from 
+data = addfile("./wrfout_d02_2006-feb1-27_co2_ant_bio_ic_bc.nc","r")
+
+CO2_BIO_00h = wrf_user_getvar(data,"CO2_BIO",(/96,120,144,168,192,216,240,264,288,312,336,360,384,408,432,456,480,504,528,552,576,600,624/))
+CO2_BIO_01h = wrf_user_getvar(data,"CO2_BIO",(/97,121,145,169,193,217,241,265,289,313,337,361,385,409,433,457,481,505,529,553,577,601,625/))
+CO2_BIO_02h = wrf_user_getvar(data,"CO2_BIO",(/98,122,146,170,194,218,242,266,290,314,338,362,386,410,434,458,482,506,530,554,578,602,626/))
+CO2_BIO_03h = wrf_user_getvar(data,"CO2_BIO",(/99,123,147,171,195,219,243,267,291,315,339,363,387,411,435,459,483,507,531,555,579,603,627/))
+CO2_BIO_04h = wrf_user_getvar(data,"CO2_BIO",(/100,124,148,172,196,220,244,268,292,316,340,364,388,412,436,460,484,508,532,556,580,604,628/))
+CO2_BIO_05h = wrf_user_getvar(data,"CO2_BIO",(/101,125,149,173,197,221,245,269,293,317,341,365,389,413,437,461,485,509,533,557,581,605,629/))
+CO2_BIO_06h = wrf_user_getvar(data,"CO2_BIO",(/102,126,150,174,198,222,246,270,294,318,342,366,390,414,438,462,486,510,534,558,582,606,630/))
+CO2_BIO_07h = wrf_user_getvar(data,"CO2_BIO",(/103,127,151,175,199,223,247,271,295,319,343,367,391,415,439,463,487,511,535,559,583,607,631/))
+CO2_BIO_08h = wrf_user_getvar(data,"CO2_BIO",(/104,128,152,176,200,224,248,272,296,320,344,368,392,416,440,464,488,512,536,560,584,608,632/))
+CO2_BIO_09h = wrf_user_getvar(data,"CO2_BIO",(/105,129,153,177,201,225,249,273,297,321,345,369,393,417,441,465,489,513,537,561,585,609,633/))
+CO2_BIO_10h = wrf_user_getvar(data,"CO2_BIO",(/106,130,154,178,202,226,250,274,298,322,346,370,394,418,442,466,490,514,538,562,586,610,634/))
+CO2_BIO_11h = wrf_user_getvar(data,"CO2_BIO",(/107,131,155,179,203,227,251,275,299,323,347,371,395,419,443,467,491,515,539,563,587,611,635/))
+CO2_BIO_12h = wrf_user_getvar(data,"CO2_BIO",(/108,132,156,180,204,228,252,276,300,324,348,372,396,420,444,468,492,516,540,564,588,612,636/))
+CO2_BIO_13h = wrf_user_getvar(data,"CO2_BIO",(/109,133,157,181,205,229,253,277,301,325,349,373,397,421,445,469,493,517,541,565,589,613,637/))
+CO2_BIO_14h = wrf_user_getvar(data,"CO2_BIO",(/110,134,158,182,206,230,254,278,302,326,350,374,398,422,446,470,494,518,542,566,590,614,638/))
+CO2_BIO_15h = wrf_user_getvar(data,"CO2_BIO",(/111,135,159,183,207,231,255,279,303,327,351,375,399,423,447,471,495,519,543,567,591,615,639/))
+CO2_BIO_16h = wrf_user_getvar(data,"CO2_BIO",(/112,136,160,184,208,232,256,280,304,328,352,376,400,424,448,472,496,520,544,568,592,616,640/))
+CO2_BIO_17h = wrf_user_getvar(data,"CO2_BIO",(/113,137,161,185,209,233,257,281,305,329,353,377,401,425,449,473,497,521,545,569,593,617,641/))
+CO2_BIO_18h = wrf_user_getvar(data,"CO2_BIO",(/114,138,162,186,210,234,258,282,306,330,354,378,402,426,450,474,498,522,546,570,594,618,642/))
+CO2_BIO_19h = wrf_user_getvar(data,"CO2_BIO",(/115,139,163,187,211,235,259,283,307,331,355,379,403,427,451,475,499,523,547,571,595,619,643/))  
+CO2_BIO_20h = wrf_user_getvar(data,"CO2_BIO",(/116,140,164,188,212,236,260,284,308,332,356,380,404,428,452,476,500,524,548,572,596,620,644/))
+CO2_BIO_21h = wrf_user_getvar(data,"CO2_BIO",(/117,141,165,189,213,237,261,285,309,333,357,381,405,429,453,477,501,525,549,573,597,621,645/))
+CO2_BIO_22h = wrf_user_getvar(data,"CO2_BIO",(/118,142,166,190,214,238,262,286,310,334,358,382,406,430,454,478,502,526,550,574,598,622,646/))
+CO2_BIO_23h = wrf_user_getvar(data,"CO2_BIO",(/119,143,167,191,215,239,263,287,311,335,359,383,407,431,455,479,503,527,551,575,599,623,647/))
+CO2_BIO_24h = wrf_user_getvar(data,"CO2_BIO",(/120,144,168,192,216,240,264,288,312,336,360,384,408,432,456,480,504,528,552,576,600,624,648/))
+CO2_BIO_avg_hourly_feb2_27_00h = dim_avg_n_Wrap(CO2_BIO_00h,0)
+CO2_BIO_avg_hourly_feb2_27_01h = dim_avg_n_Wrap(CO2_BIO_01h,0)
+CO2_BIO_avg_hourly_feb2_27_02h = dim_avg_n_Wrap(CO2_BIO_02h,0)
+CO2_BIO_avg_hourly_feb2_27_03h = dim_avg_n_Wrap(CO2_BIO_03h,0)
+CO2_BIO_avg_hourly_feb2_27_04h = dim_avg_n_Wrap(CO2_BIO_04h,0)
+CO2_BIO_avg_hourly_feb2_27_05h = dim_avg_n_Wrap(CO2_BIO_05h,0)
+CO2_BIO_avg_hourly_feb2_27_06h = dim_avg_n_Wrap(CO2_BIO_06h,0)
+CO2_BIO_avg_hourly_feb2_27_07h = dim_avg_n_Wrap(CO2_BIO_07h,0)
+CO2_BIO_avg_hourly_feb2_27_08h = dim_avg_n_Wrap(CO2_BIO_08h,0)
+CO2_BIO_avg_hourly_feb2_27_09h = dim_avg_n_Wrap(CO2_BIO_09h,0)
+CO2_BIO_avg_hourly_feb2_27_10h = dim_avg_n_Wrap(CO2_BIO_10h,0)
+CO2_BIO_avg_hourly_feb2_27_11h = dim_avg_n_Wrap(CO2_BIO_11h,0)
+CO2_BIO_avg_hourly_feb2_27_12h = dim_avg_n_Wrap(CO2_BIO_12h,0)
+CO2_BIO_avg_hourly_feb2_27_13h = dim_avg_n_Wrap(CO2_BIO_13h,0)
+CO2_BIO_avg_hourly_feb2_27_14h = dim_avg_n_Wrap(CO2_BIO_14h,0)
+CO2_BIO_avg_hourly_feb2_27_15h = dim_avg_n_Wrap(CO2_BIO_15h,0)
+CO2_BIO_avg_hourly_feb2_27_16h = dim_avg_n_Wrap(CO2_BIO_16h,0)
+CO2_BIO_avg_hourly_feb2_27_17h = dim_avg_n_Wrap(CO2_BIO_17h,0)
+CO2_BIO_avg_hourly_feb2_27_18h = dim_avg_n_Wrap(CO2_BIO_18h,0)
+CO2_BIO_avg_hourly_feb2_27_19h = dim_avg_n_Wrap(CO2_BIO_19h,0)
+CO2_BIO_avg_hourly_feb2_27_20h = dim_avg_n_Wrap(CO2_BIO_20h,0)
+CO2_BIO_avg_hourly_feb2_27_21h = dim_avg_n_Wrap(CO2_BIO_21h,0)
+CO2_BIO_avg_hourly_feb2_27_22h = dim_avg_n_Wrap(CO2_BIO_22h,0)
+CO2_BIO_avg_hourly_feb2_27_23h = dim_avg_n_Wrap(CO2_BIO_23h,0)
+CO2_BIO_avg_hourly_feb2_27_24h = dim_avg_n_Wrap(CO2_BIO_24h,0) 
+
+print ("0" + "	"  + CO2_BIO_avg_hourly_feb2_27_00h(4,21,42))
+print ("1" + "	"  + CO2_BIO_avg_hourly_feb2_27_01h(4,21,42))
+print ("2" + "	"  + CO2_BIO_avg_hourly_feb2_27_02h(4,21,42))
+print ("3" + "	"  + CO2_BIO_avg_hourly_feb2_27_03h(4,21,42))
+print ("4" + "	"  + CO2_BIO_avg_hourly_feb2_27_04h(4,21,42))
+print ("5" + "	"  + CO2_BIO_avg_hourly_feb2_27_05h(4,21,42))
+print ("6" + "	"  + CO2_BIO_avg_hourly_feb2_27_06h(4,21,42))
+print ("7" + "	"  + CO2_BIO_avg_hourly_feb2_27_07h(4,21,42))
+print ("8" + "	"  + CO2_BIO_avg_hourly_feb2_27_08h(4,21,42))
+print ("9" + "	"  + CO2_BIO_avg_hourly_feb2_27_09h(4,21,42))
+print ("10" + "	"  + CO2_BIO_avg_hourly_feb2_27_10h(4,21,42))
+print ("11" + "	"  + CO2_BIO_avg_hourly_feb2_27_11h(4,21,42))
+print ("12" + "	"  + CO2_BIO_avg_hourly_feb2_27_12h(4,21,42))
+print ("13" + "	"  + CO2_BIO_avg_hourly_feb2_27_13h(4,21,42))
+print ("14" + "	"  + CO2_BIO_avg_hourly_feb2_27_14h(4,21,42))
+print ("15" + "	"  + CO2_BIO_avg_hourly_feb2_27_15h(4,21,42))
+print ("16" + "	"  + CO2_BIO_avg_hourly_feb2_27_16h(4,21,42))
+print ("17" + "	"  + CO2_BIO_avg_hourly_feb2_27_17h(4,21,42))
+print ("18" + "	"  + CO2_BIO_avg_hourly_feb2_27_18h(4,21,42))
+print ("19" + "	"  + CO2_BIO_avg_hourly_feb2_27_19h(4,21,42))
+print ("20" + "	"  + CO2_BIO_avg_hourly_feb2_27_20h(4,21,42))
+print ("21" + "	"  + CO2_BIO_avg_hourly_feb2_27_21h(4,21,42))
+print ("22" + "	"  + CO2_BIO_avg_hourly_feb2_27_22h(4,21,42))
+print ("23" + "	"  + CO2_BIO_avg_hourly_feb2_27_23h(4,21,42))
+print ("24" + "	"  + CO2_BIO_avg_hourly_feb2_27_24h(4,21,42))
+
+end 
