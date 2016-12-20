@@ -29,8 +29,12 @@ post-processing, modification, and visualization of netCDF files, and further en
 
 Research focused on mesoscale and regional (forward or “bottom-up”) atmospheric transport modeling and analysis of anthropogenic and biogenic carbon dioxide emissions from northern California for multi-scale estimation and quantification of atmospheric CO2 concentrations. This work has included extensive use of the Weather Research & Forecasting Model (written mostly in FORTRAN), the WRF-Chem coupled weather-air quality model for atmospheric transport simulations, and the Vegetation Photosynthesis and Respiration Model (WRF-VPRM) biospheric model to simulate CO2 biosphere fluxes and atmospheric CO2 concentrations. One area of focus of this work was to study and gain a better understanding of what effect diurnal varying/cycled CO2 fluxes had on simulated CO2 concentrations as compared to time-invariant CO2 flux emissions and as a way to assess source and/or sink sampling bias..]
 
- I also installed, compiled, built, and configured WRF, WRF-Chem, and VPRM on the NERSC multi-core supercomputing system “Hopper” and submitted batch job scripts to this system to run the WRF model simulations. In addition to the use of WRF, this work also involved the use of the R statistical scripting language, the NCAR Command Language (NCL), Matlab, Python, and Ferret (http://ferret.pmel.noaa.gov/Ferret/home) for additional pre- and post-processing, modification, and visualization of netCDF files. For additional details and information, please 
-see http://www.linkedin.com/in/markyashar. 
+ I also installed, compiled, built, and configured WRF, WRF-Chem, and VPRM on the NERSC multi-core supercomputing system “Hopper” and submitted batch job scripts to this system to run the WRF model simulations. In addition to the use of WRF, this work also involved the use of the R statistical scripting language, the NCAR Command Language (NCL), Matlab, Python, and Ferret (http://ferret.pmel.noaa.gov/Ferret/home) for additional pre- and post-processing, modification, and visualization of netCDF files. For additional details and information, please see http://www.linkedin.com/in/markyashar. 
 Supervisor: Professor Inez Fung, UCB
+
+---------------
+
+This repository includes the output (time series plots, contour plots, animations, and scripts used to visualize output) of WRF simulations carried out in the atmospheric CO2 modeling work that I carried out in my postdoctoral work at UC Berkeley. The various
+plots and graphs were generated using Python, NCL, and Ferret software
 
 
